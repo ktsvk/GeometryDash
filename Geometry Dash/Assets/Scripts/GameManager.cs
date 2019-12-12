@@ -11,11 +11,19 @@ public class GameManager : MonoBehaviour
         if (gameHasEnded == false)
         {
             gameHasEnded = true;
-            Invoke("Restart", 3f);
+            Invoke("Restart", 0.1f);
         }
     }
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Invoke("Restart", 0.1f);
+        }
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * - 0.8f);
     }
 }
