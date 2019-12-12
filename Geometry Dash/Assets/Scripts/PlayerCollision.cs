@@ -9,6 +9,7 @@ public class PlayerCollision : MonoBehaviour
         if(collision.gameObject.CompareTag("Obstacle"))
         {
             collision.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            collision.gameObject.GetComponent<Rigidbody>().AddForce((Vector3.up + Vector3.right) * 40f, ForceMode.Impulse);
             var obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
             var bigObstacle = GameObject.FindGameObjectsWithTag("BigObstacle");
             var superBigObstacle = GameObject.FindGameObjectsWithTag("SupreBigObstacle");
