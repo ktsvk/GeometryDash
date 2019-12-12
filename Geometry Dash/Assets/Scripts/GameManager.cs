@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         if (gameHasEnded == false)
         {
             gameHasEnded = true;
-            Invoke("Restart", 2f);
+            Invoke("Restart", 1f);
         }
     }
     public void Restart()
