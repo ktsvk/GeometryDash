@@ -15,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI score;
+    [SerializeField]
+    private TextMeshProUGUI attempt;
+    [SerializeField]
+    private Transform finish;
 
     [SerializeField]
     private float rotationSpeed = 3f;
@@ -49,7 +53,8 @@ public class PlayerMovement : MonoBehaviour
             FindObjectOfType<GameManager>().GameOver();
         }
         posX = rb.position.x;
-        score.text = "SCORE " + Mathf.Round(transform.position.x);
+        score.text = "PROGRESS " + Mathf.Round(transform.position.x / finish.position.x * 100) + "%";
+        attempt.text = "ATTEMPT " + MenuManager.attempt;
     }
     private void GameGravity()
     {
@@ -94,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Finish"))
         {
+            MenuManager.attempt = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
