@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGround;
     private void Start()
     {
+        Time.timeScale = 1;
         rotation = Vector3.zero;
         isGround = false;
         posX = -1;
