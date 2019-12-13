@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     }
     public void Restart()
     {
+        MenuManager.attempt++;
+        Debug.Log(MenuManager.attempt);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private void Update()
