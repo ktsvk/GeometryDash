@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    
+    public static int attempt = 1;
     public void PlayButton()
     {
         SceneManager.LoadScene("Level01");
