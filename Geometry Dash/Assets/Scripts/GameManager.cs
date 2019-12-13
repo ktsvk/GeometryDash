@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     bool gameHasEnded = false;
+    [SerializeField]
+    private GameObject Panel;
     public void GameOver()
     {
         if (gameHasEnded == false)
@@ -27,5 +29,19 @@ public class GameManager : MonoBehaviour
             Invoke("Restart", 0.1f);
         }
         RenderSettings.skybox.SetFloat("_Rotation", Time.time * - 0.8f);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+                Panel.SetActive(true);
+            }
+            else
+            {
+                Time.timeScale = 1;
+                Panel.SetActive(false);
+            }
+            
+        }
     }
 }
